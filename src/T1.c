@@ -3,10 +3,11 @@
 #include<string.h>
 
 #define MAX_ARGS_LEN 3
-#define EXCL 33
+
 #define OP_PAR 40
 #define CL_PAR 41
 #define STAR 42
+#define POINT 46
 #define UNDSCRE 95
 #define VBAR 124
 #define TILDE 126
@@ -61,7 +62,7 @@ int check_regex_elements(char *argv[]){
 }
 
 int belongs_to_regex_symbol(char c){
-	if((c==EXCL)||(c>=OP_PAR && c<=STAR)||(c==UNDSCRE)||(c==VBAR)||(c==TILDE)) return 1;
+	if((c==POINT)||(c>=OP_PAR && c<=STAR)||(c==UNDSCRE)||(c==VBAR)||(c==TILDE)) return 1;
 	return 0;
 }
 
