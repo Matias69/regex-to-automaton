@@ -42,3 +42,17 @@ void insert_edge(graph *g, int x, int y, bool directed){
     else
         g->nedges++;
 }
+
+void print_graph(graph *g){
+    edgenode *p;
+
+    for(int i=1; i<=g->nvertices; i++){
+        printf("%d: ", i);
+        p = g->edges[i];
+        while(p != NULL){
+            printf(" %d", p->y);
+            p = p->next;
+        }
+        printf("\n");
+    }
+}
