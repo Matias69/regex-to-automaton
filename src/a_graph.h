@@ -17,7 +17,7 @@ typedef struct {
 } graph;
 
 void initialize_graph(graph *g, bool directed){
-    int i;                          /* contador */
+    int i;
     g -> nvertices = 0;
     g -> nedges = 0;
     g -> directed = directed;
