@@ -21,12 +21,18 @@ int belongs_to_regex_symbol(char);
 int belongs_to_sigma(char);
 
 int main(int argc, char *argv[]){
-	check_input(argc, argv);
-	printf("todo ok!\n");
+	// check_input(argc, argv);
+	// printf("todo ok!\n");
 
 	graph *automaton;
 	automaton = malloc(sizeof(graph));
-	initialize_graph(g);
+	initialize_graph(automaton);
+	insert_edge(automaton, 3,4);
+	insert_edge(automaton, 2,4);
+	insert_edge(automaton, 1,8);
+	insert_edge(automaton, 7,3);
+
+	print_graph(automaton);
 
 	return 0;
 }
