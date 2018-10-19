@@ -23,6 +23,11 @@ int belongs_to_sigma(char);
 int main(int argc, char *argv[]){
 	check_input(argc, argv);
 	printf("todo ok!\n");
+
+	graph *automaton;
+	automaton = malloc(sizeof(graph));
+	initialize_graph(g);
+
 	return 0;
 }
 
