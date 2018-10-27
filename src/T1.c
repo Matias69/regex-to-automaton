@@ -1,17 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "a_graph.h"
 
 #define MAX_ARGS_LEN 3
-
-#define OP_PAR 40
-#define CL_PAR 41
-#define STAR 42
-#define POINT 46
-#define UNDSCRE 95
-#define VBAR 124
-#define TILDE 126
 
 void check_input(int, char*[]);
 int check_input_len(int, int);
@@ -21,12 +12,18 @@ int belongs_to_regex_symbol(char);
 int belongs_to_sigma(char);
 
 int main(int argc, char *argv[]){
-	check_input(argc, argv);
-	printf("todo ok!\n");
+	// check_input(argc, argv);
+	// printf("todo ok!\n");
 
 	graph *automaton;
 	automaton = malloc(sizeof(graph));
-	initialize_graph(g);
+	initialize_graph(automaton);
+
+	cat_exp(automaton, 1, 'a', '.');
+	cat_exp(automaton, 2, 'b', '.');
+	cat_exp(automaton, 3, 'c', '.');
+
+	show_graph(automaton);
 
 	return 0;
 }
