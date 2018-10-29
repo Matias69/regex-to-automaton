@@ -4,7 +4,7 @@
 
 typedef struct {
     int y;     /*adjancency info*/
-    int weight;
+    char transition;
     struct edgenode *next;
 } edgenode;
 
@@ -25,32 +25,29 @@ void initialize_graph(graph *g){
     for (i=1; i<=V_MAX; i++) g->edges[i] = NULL;
 }
 
-void insert_edge(graph *g, int x, int y){
+void insert_edge(graph *g, int x, char t, int y){
     edgenode *p;
     p = malloc(sizeof(edgenode));
-
-    p->weight = NULL;
+    p->transition = t;
     p->y = y;
     p->next = g->edges[x];
 
     g->edges[x] = p;
-
     g->out_degree[x]++;
     g->in_degree[y]++;
-
     g->nedges++;
 }
 
 void print_graph(graph *g){
     edgenode *p;
 
-    int n = g->nvertices;
+    int n = g->nedges;
     printf("n = %d\n", n);
 
-    for(int i=1; i<=10; i++){
+    for(int i=1; i<=V_MAX; i++){
         p = g->edges[i];
         while(p != NULL){
-            printf("%d -> %d\n", i, p->y);
+            printf("%d -> %d (%c)\n", i, p->y, p->transition);
             p = p->next;
         }
     }
