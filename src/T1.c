@@ -11,18 +11,24 @@ int check_regex_elements(char*[]);
 int belongs_to_regex_symbol(char);
 int belongs_to_sigma(char);
 
+void initialize_array(int*, int);
+
 int main(int argc, char *argv[]){
-	// check_input(argc, argv);
-	// printf("todo ok!\n");
+	check_input(argc, argv);
+	printf("todo ok!\n");
 
 	graph *automaton;
 	automaton = malloc(sizeof(graph));
 	initialize_graph(automaton);
 
-	cat_exp(automaton, 1, 'a', '.');
-	cat_exp(automaton, 2, 'b', '.');
-	cat_exp(automaton, 3, 'c', '.');
+	int parenthesis[V_MAX];
+	int par_num = 0;
+	initialize_array(parenthesis, V_MAX);
 
+	regex_to_afnd(automaton, 1, 2, argv[1], 0, parenthesis, par_num);
+
+	printf("s = %d\n", automaton->s);
+	printf("f = %d\n", automaton->f);
 	show_graph(automaton);
 
 	return 0;
@@ -72,4 +78,8 @@ int belongs_to_regex_symbol(char c){
 int belongs_to_sigma(char c){
 	if((c>=48 && c<=57)||(c>=65 && c<=90)||(c>=97 && c<=122)) return 1;
 	return 0;
+}
+
+void initialize_array(int* arr, int len){
+	for(int i=0; i<len; i++) arr[i] = 0;
 }
