@@ -10,7 +10,6 @@ int check_input_elements(char*[]);
 int check_regex_elements(char*[]);
 int belongs_to_regex_symbol(char);
 int belongs_to_sigma(char);
-
 void initialize_array(int*, int);
 
 int main(int argc, char *argv[]){
